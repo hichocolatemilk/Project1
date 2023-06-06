@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layouts}">
+
+<div layout:fragment="content">
+
+    <h1>로그인</h1>
+
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label for="email"> 이메일 </label>
+                    <input type="text" class="form-control" id="email" placeholder="이메일을 입력해주세요.">
+                </div>
+                <div class="form-group">
+                    <label for="password"> 비밀번호 </label>
+                    <input type="text" class="form-control" id="password" placeholder="비밀번호를 입력해주세요.">
+                </div>
+                <div class="form-group">
+                    <label for="nickName"> 닉네임 </label>
+                    <input type="text" class="form-control" id="nickName" placeholder="하시고 싶은 닉네임을 입력해주세요.">
+                </div>
+            </form>
+            <button type="button" class="btn btn-success" id="ㅂㅂㅂ"> 로그인 </button>
+            <button type="button" class="btn btn-primary" id="ㄴㄴㄴ"> 회원가입 </button>
+            <a href="/" role="button" class="btn btn-secondary"> 취소 </a>
+        </div>
+    </div>
+</div>
