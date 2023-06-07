@@ -7,10 +7,9 @@
     <div class="board-button">
        <a href="/board/post">
 
-        <button  type="button" class="btn btn-primary">게시글 쓰기</button>
+        <button type="button" class="btn btn-primary">게시글 쓰기</button>
        </a>
     </div>
-
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -21,7 +20,6 @@
             <th scope="col">조회수</th>
         </tr>
         </thead>
-
         <tbody>
         <tr th:each="board : ${boardList}">
             <td th:text="${board.nno}">#</td>
@@ -29,11 +27,7 @@
             <td th:text="${board.writer}">작성자</td>
             <td th:text="${board.modifiedDate}">수정일자</td>
             <td th:text="${board.view}">조회수</td>
-
-
         </tr>
         </tbody>
     </table>
 </div>
-
-<!--  <{/board/post/(nno = ${board.nno})}    -->

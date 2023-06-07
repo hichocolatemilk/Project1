@@ -38,6 +38,7 @@ public class Member extends BaseTimeEntity {
                 .email(memberDto.getEmail())
                 .nickName(memberDto.getNickName())
                 .password(password)
+                .role(Role.ADMIN)
                 .build();
     }
 }

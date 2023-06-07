@@ -1,5 +1,6 @@
 package spring.web.project1.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,6 +12,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
+@Slf4j
 public class SecurityConfig {
 
     @Bean
@@ -20,7 +22,6 @@ public class SecurityConfig {
                 .loginPage("/member/login")
                 .defaultSuccessUrl("/")
                 .usernameParameter("email")
-                .passwordParameter("password")
                 .failureUrl("/member/login/error")
                 .and()
                 .logout()
@@ -35,7 +36,6 @@ public class SecurityConfig {
                 .csrf()
                 .ignoringAntMatchers("/h2-console/**")
                 .and().headers().frameOptions().sameOrigin();
-
         return http.build();
     }
 
