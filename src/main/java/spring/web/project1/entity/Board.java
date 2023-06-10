@@ -35,13 +35,9 @@ public class Board extends BaseTimeEntity {
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Comment> commentList = new ArrayList<>();
 
-//    @Builder
-//    public Board(String title, String content, String writer, int view){
-//        this.title = title;
-//        this.content = content;
-//        this.writer = writer;
-//        this.view = view;
-//    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     public void update(String title, String content){
         this.title = title;

@@ -27,8 +27,11 @@ public class Comment extends BaseTimeEntity {
 
     @ManyToOne
     @JoinColumn(name = "board_nno")
-    @ToString.Exclude
     private Board board;
+
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     public void update(String comment){
         this.comment = comment;
