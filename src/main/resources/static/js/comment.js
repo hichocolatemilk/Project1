@@ -1,3 +1,4 @@
+
 let comment = {
     init: function () {
         let _this = this;
@@ -27,6 +28,10 @@ let comment = {
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,',
             data: JSON.stringify(data),
+            beforeSend : function(xhr) {
+                /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+                xhr.setRequestHeader(header, token);
+            },
         }).done(function () {
             alert("등록");
             window.location.href = "/board/post/view/" + nno;
@@ -36,6 +41,7 @@ let comment = {
         })
     },
     commentUpdate: function () {
+
         let nno = $('#nno').val();
         let id = $('#commentId').val();
         let data = {
@@ -51,6 +57,10 @@ let comment = {
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,',
             data: JSON.stringify(data),
+            beforeSend : function(xhr) {
+                /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+                xhr.setRequestHeader(header, token);
+            },
         }).done(function () {
             alert("등록");
             window.location.href = "/board/post/view/" + nno;
@@ -67,6 +77,10 @@ let comment = {
             url: '/api/post/' + nno + '/comment/' + id,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,',
+            beforeSend : function(xhr) {
+                /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+                xhr.setRequestHeader(header, token);
+            },
         }).done(function() {
             alert("삭제");
             window.location.href = "/board/post/view/" + nno;

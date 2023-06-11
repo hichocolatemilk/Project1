@@ -28,7 +28,7 @@ public class SecurityConfig {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
                 .logoutSuccessUrl("/");
         http.authorizeHttpRequests()
-                .mvcMatchers("/css/**", "/js/**").permitAll()
+                .mvcMatchers("/css/**", "/js/**", "/files/**").permitAll()
                 .mvcMatchers("/", "/member/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated()

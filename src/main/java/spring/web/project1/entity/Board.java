@@ -32,12 +32,16 @@ public class Board extends BaseTimeEntity {
     @Column(columnDefinition = "integer default 0" ,nullable = true)
     private int view;
 
-    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Comment> commentList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch =  FetchType.LAZY)
+    private List<BoardFile> boardFileList = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
 
     public void update(String title, String content){
         this.title = title;

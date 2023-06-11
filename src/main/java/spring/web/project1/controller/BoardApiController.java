@@ -16,11 +16,6 @@ public class BoardApiController {
 
     private final BoardService boardService;
 
-    //확인용 전체 확인
-    @GetMapping(value = "/api/getall")
-    public List<Board> getAll(){
-        return boardService.getList();
-    }
 
     @PostMapping(value = "/api/post")
     public Long save(@RequestBody BoardSaveDto boardSaveDto){

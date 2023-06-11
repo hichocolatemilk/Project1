@@ -1,6 +1,7 @@
 package spring.web.project1.dto;
 
 import lombok.Getter;
+import lombok.Setter;
 import spring.web.project1.entity.Board;
 import spring.web.project1.entity.Comment;
 
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
+@Setter
 public class BoardResDto {
 
     private Long nno;

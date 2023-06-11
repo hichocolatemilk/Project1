@@ -1,6 +1,8 @@
 package spring.web.project1.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import spring.web.project1.dto.BoardResDto;
@@ -18,14 +20,24 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-    public Long save(BoardSaveDto boardSaveDto){
-        return boardRepository.save(boardSaveDto.toEntity()).getNno();
+    //
+    public Page<Board> getList (Pageable pageable){
+
+        return boardRepository.findAll(pageable);
     }
 
-    public List<Board> getList (){
+
+
+
+    //rest
+
+    public List<Board> getAll(){
         return boardRepository.findAll();
     }
 
+    public Long save(BoardSaveDto boardSaveDto){
+        return boardRepository.save(boardSaveDto.toEntity()).getNno();
+    }
 
     public Long update(Long nno, BoardUpdateDto boardUpdateDto){
         Board board = boardRepository.findById(nno)

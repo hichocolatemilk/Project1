@@ -1,3 +1,6 @@
+let token = $("meta[name='_csrf']").attr("content");
+let header = $("meta[name='_csrf_header']").attr("content");
+
 let post = {
     init: function () {
         let _this = this;
@@ -15,7 +18,7 @@ let post = {
         let data = {
             title: $('#title').val(),
             content: $('#content').val(),
-            writer: $('#writer').val()
+            writer: $('#writer').val(),
         };
 
         $.ajax({
@@ -24,7 +27,11 @@ let post = {
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,',
             data: JSON.stringify(data),
-        }).done(function() {
+            beforeSend : function(xhr) {
+                /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+                xhr.setRequestHeader(header, token);
+            },
+            }).done(function() {
             alert("등록");
             window.location.href = "/board";
         }).fail(function (){
@@ -43,6 +50,10 @@ let post = {
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,',
             data: JSON.stringify(data),
+            beforeSend : function(xhr) {
+                /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+                xhr.setRequestHeader(header, token);
+            },
         }).done(function() {
             alert("등록");
             window.location.href = "/board";
@@ -57,6 +68,10 @@ let post = {
             url: '/api/post/' + nno,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,',
+            beforeSend : function(xhr) {
+                /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+                xhr.setRequestHeader(header, token);
+            },
         }).done(function() {
             alert("삭제");
             window.location.href = "/board";

@@ -3,6 +3,8 @@ package spring.web.project1.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -32,7 +34,7 @@ public class Comment extends BaseTimeEntity {
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
-
+    
     public void update(String comment){
         this.comment = comment;
     }
