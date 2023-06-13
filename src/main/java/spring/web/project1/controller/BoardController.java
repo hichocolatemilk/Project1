@@ -28,7 +28,7 @@ public class BoardController {
 
 
     @GetMapping(value = "/board")
-    public String board(Model model, @PageableDefault(page = 0, size = 1, sort = "nno") Pageable pageable){
+    public String board(Model model, @PageableDefault(page = 0, size = 5, sort = "nno") Pageable pageable){
         Page<Board> boardList = boardService.getList(pageable);
 
         int nowPage = boardList.getPageable().getPageNumber() + 1;
