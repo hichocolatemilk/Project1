@@ -20,13 +20,11 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-    //
+
     public Page<Board> getList (Pageable pageable){
 
         return boardRepository.findAll(pageable);
     }
-
-
 
 
     //rest

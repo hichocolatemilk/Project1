@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 @Table(name = "comment")
 @Getter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

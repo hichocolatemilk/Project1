@@ -1,6 +1,7 @@
 package spring.web.project1.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import spring.web.project1.dto.BoardResDto;
 import spring.web.project1.dto.BoardSaveDto;
@@ -16,6 +17,10 @@ public class BoardApiController {
 
     private final BoardService boardService;
 
+    @GetMapping(value = "/api/post/getall")
+    public List<Board> getall(){
+        return boardService.getAll();
+    }
 
     @PostMapping(value = "/api/post")
     public Long save(@RequestBody BoardSaveDto boardSaveDto){

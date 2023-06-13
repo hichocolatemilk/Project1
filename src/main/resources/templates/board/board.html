@@ -29,9 +29,9 @@
             <td th:text="${board.view}">조회수</td>
         </tr>
         </tbody>
-        <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
-            <a th:if="${page != nowPage}" th:href="@{/board/(page = ${page - 1})}" th:text="${page}"></a>
-            <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
-        </th:block>
+<!--        <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">-->
+<!--            <a th:if="${page != nowPage}" th:href="@{/board/(page = ${page - 1})}" th:text="${page}"></a>-->
+<!--            <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>-->
+<!--        </th:block>-->
     </table>
 </div>

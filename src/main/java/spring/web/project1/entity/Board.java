@@ -1,5 +1,6 @@
 package spring.web.project1.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,7 +10,6 @@ import java.util.List;
 @Entity
 @Table(name = "board")
 @Getter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -33,9 +33,11 @@ public class Board extends BaseTimeEntity {
     private int view;
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Comment> commentList = new ArrayList<>();
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch =  FetchType.LAZY)
+    @JsonIgnore
     private List<BoardFile> boardFileList = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)

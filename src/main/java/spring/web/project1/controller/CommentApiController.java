@@ -1,6 +1,7 @@
 package spring.web.project1.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import spring.web.project1.dto.CommentReqDto;
 import spring.web.project1.dto.CommentUpdateDto;
@@ -15,6 +16,10 @@ public class CommentApiController {
 
     private final CommentService commentService;
 
+    @GetMapping(value = "/api/post/comment/getall")
+    public List<Comment> getall(){
+        return commentService.getall();
+    }
 
     @PostMapping(value = "/api/post/{nno}/comment")
     public Long save(@PathVariable Long nno, @RequestBody CommentReqDto commentReqDto){
