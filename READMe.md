@@ -1,4 +1,4 @@
-* 게시판 BackEnd/FrontEnd 프로젝트(2023.05.29 ~ 2023.06.18)
+* 게시판 BackEnd/FrontEnd 프로젝트(2023.05.29 ~ 2023.06.18) 미완성
 
 * 인원수 1명
 
@@ -8,7 +8,7 @@
 * 사용기술
   * SpringBoot 2.7.11, H2-database, Jpa, Thymeleaf, bootstrap
   * React, mui
-  * SpringSecurity(JWT?,SESSION)
+  * SpringSecurity(SESSION)
 
 
 * 개발기간(목표) 3주
