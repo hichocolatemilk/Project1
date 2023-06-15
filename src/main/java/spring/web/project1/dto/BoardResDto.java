@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
-@Setter
 public class BoardResDto {
 
     private Long nno;

@@ -21,6 +21,7 @@ public class BoardService {
     private final BoardRepository boardRepository;
 
 
+
     public Page<Board> getList (Pageable pageable){
 
         return boardRepository.findAll(pageable);
@@ -28,7 +29,6 @@ public class BoardService {
 
 
     //rest
-
     public List<Board> getAll(){
         return boardRepository.findAll();
     }
