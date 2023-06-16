@@ -32,13 +32,18 @@ public class Board extends BaseTimeEntity {
     @Column(columnDefinition = "integer default 0" ,nullable = true)
     private int view;
 
+    @Column
+    private String fileName;
+
+    @Column
+    private String filePath;
+
+//    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+//    private List<BoardFile> boardFileList = new ArrayList<>();
+
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Comment> commentList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch =  FetchType.LAZY)
-    @JsonIgnore
-    private List<BoardFile> boardFileList = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

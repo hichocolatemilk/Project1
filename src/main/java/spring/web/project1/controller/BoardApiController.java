@@ -3,14 +3,13 @@ package spring.web.project1.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import spring.web.project1.dto.BoardFileResDto;
 import spring.web.project1.dto.BoardResDto;
 import spring.web.project1.dto.BoardSaveDto;
 import spring.web.project1.dto.BoardUpdateDto;
 import spring.web.project1.entity.Board;
 import spring.web.project1.service.BoardService;
-import spring.web.project1.service.FileService;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -18,7 +17,6 @@ import java.util.List;
 public class BoardApiController {
 
     private final BoardService boardService;
-    private final FileService fileService;
 
     @GetMapping(value = "/api/post/getall")
     public List<Board> getall(){
@@ -26,8 +24,8 @@ public class BoardApiController {
     }
 
     @PostMapping(value = "/api/post")
-    public Long save(@RequestBody BoardSaveDto boardSaveDto){
-        return boardService.save(boardSaveDto);
+    public Long save(@RequestBody BoardSaveDto boardSaveDto, MultipartFile file) throws Exception {
+        return boardService.save(boardSaveDto, file);
     }
 
     @GetMapping(value = "api/post/{nno}")

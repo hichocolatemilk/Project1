@@ -1,17 +1,22 @@
 package spring.web.project1.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import spring.web.project1.dto.BoardResDto;
 import spring.web.project1.dto.BoardSaveDto;
 import spring.web.project1.dto.BoardUpdateDto;
 import spring.web.project1.entity.Board;
 import spring.web.project1.repository.BoardRepository;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -20,7 +25,8 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-
+    @Value("${file.upload-dir}")
+    private String filesPath;
 
     public Page<Board> getList (Pageable pageable){
 
@@ -33,7 +39,15 @@ public class BoardService {
         return boardRepository.findAll();
     }
 
-    public Long save(BoardSaveDto boardSaveDto){
+    public Long save(BoardSaveDto boardSaveDto, MultipartFile file
+    ) throws IOException {
+
+        UUID uuid = UUID.randomUUID();
+        String fileName = uuid + "_" + file.getOriginalFilename();
+        File saveFile = new File(filesPath, "name");
+        file.transferTo(saveFile);
+        boardSaveDto.setFileName(fileName);
+        boardSaveDto.setFilePath(filesPath + fileName);
         return boardRepository.save(boardSaveDto.toEntity()).getNno();
     }
 
