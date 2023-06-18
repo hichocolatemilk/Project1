@@ -33,21 +33,30 @@ public class BoardService {
         return boardRepository.findAll(pageable);
     }
 
+    public Page<Board> search(String searchTitle, Pageable pageable){
+        return boardRepository.findByTitle(searchTitle, pageable);
+    }
+
 
     //rest
     public List<Board> getAll(){
         return boardRepository.findAll();
     }
 
-    public Long save(BoardSaveDto boardSaveDto, MultipartFile file
-    ) throws IOException {
+//    public Long save(BoardSaveDto boardSaveDto, MultipartFile file
+//    ) throws IOException {
+//
+//        UUID uuid = UUID.randomUUID();
+//        String fileName = uuid + "_" + file.getOriginalFilename();
+//        File saveFile = new File(filesPath, "name");
+//        file.transferTo(saveFile);
+//        boardSaveDto.setFileName(fileName);
+//        boardSaveDto.setFilePath(filesPath + fileName);
+//        return boardRepository.save(boardSaveDto.toEntity()).getNno();
+//    }
 
-        UUID uuid = UUID.randomUUID();
-        String fileName = uuid + "_" + file.getOriginalFilename();
-        File saveFile = new File(filesPath, "name");
-        file.transferTo(saveFile);
-        boardSaveDto.setFileName(fileName);
-        boardSaveDto.setFilePath(filesPath + fileName);
+    public Long save(BoardSaveDto boardSaveDto) throws IOException {
+
         return boardRepository.save(boardSaveDto.toEntity()).getNno();
     }
 

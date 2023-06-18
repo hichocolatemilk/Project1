@@ -24,8 +24,8 @@ public class BoardApiController {
     }
 
     @PostMapping(value = "/api/post")
-    public Long save(@RequestBody BoardSaveDto boardSaveDto, MultipartFile file) throws Exception {
-        return boardService.save(boardSaveDto, file);
+    public Long save(@RequestBody BoardSaveDto boardSaveDto) throws Exception {
+        return boardService.save(boardSaveDto);
     }
 
     @GetMapping(value = "api/post/{nno}")

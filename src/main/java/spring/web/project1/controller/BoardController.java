@@ -3,6 +3,7 @@ package spring.web.project1.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,14 +29,22 @@ public class BoardController {
 
 
     @GetMapping(value = "/board")
-    public String board(Model model, @PageableDefault(page = 0, size = 5, sort = "nno") Pageable pageable){
-        Page<Board> boardList = boardService.getList(pageable);
+    public String board(Model model, @PageableDefault(page = 0, size = 1, sort = "nno", direction = Sort.Direction.DESC)
+    Pageable pageable, String searchTitle)
+    {
+        Page<Board> boardList = null;
+        if(searchTitle == null){
+            boardList = boardService.getList(pageable);
+        }else {
+            boardList = boardService.search(searchTitle, pageable);
+        }
+
 
         int nowPage = boardList.getPageable().getPageNumber() + 1;
         int startPage = Math.max(nowPage -4, 1);
         int endPage = Math.min(nowPage +5, boardList.getTotalPages());
 
-        model.addAttribute("boardList", boardService.getList(pageable));
+        model.addAttribute("boardList",boardList);
         model.addAttribute("nowPage", nowPage);
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
