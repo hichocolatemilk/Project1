@@ -23,6 +23,10 @@ public class BoardApiController {
         return boardService.getAll();
     }
 
+//    @PostMapping(value = "/api/post")
+//    public Long save(@RequestPart(value = "key")BoardSaveDto boardSaveDto, @RequestPart MultipartFile file) throws Exception {
+//        return boardService.save(boardSaveDto,file);
+//    }
     @PostMapping(value = "/api/post")
     public Long save(@RequestBody BoardSaveDto boardSaveDto) throws Exception {
         return boardService.save(boardSaveDto);

@@ -38,8 +38,6 @@ public class Board extends BaseTimeEntity {
     @Column
     private String filePath;
 
-//    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-//    private List<BoardFile> boardFileList = new ArrayList<>();
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonIgnore
