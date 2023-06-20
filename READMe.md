@@ -2,12 +2,12 @@
 
 * 인원수 1명
 
+* 목적: CRUD에 대한 전체적인 이해
 
 * Thymeleaf를 사용하여 BackEnd(Springboot)쪽에서 구현 후 FrontEnd(React)를 사용할 예정
 
 * 사용기술
   * SpringBoot 2.7.11, H2-database, Jpa, Thymeleaf, bootstrap
-  * React, mui
   * SpringSecurity(SESSION)
 
 
