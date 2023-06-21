@@ -21,7 +21,7 @@
     * 한코딩(페이징): https://www.youtube.com/watch?v=Q_W9jNTBWxo
     * 한코딩(검색): https://www.youtube.com/watch?v=ebfG6_AOlAE&t=150s
 * 결과
-  *  파일업로드를 제외한 나머지 기능은 완료 - 파일 업로드 21일까지 진행 후 안될 시 제외? 생각 중
+  *  파일업로드를 제외한 나머지 기능은 완료 - 파일 업로드 21일까지(실마리가 보여서 좀 더 해볼 듯함 ) 진행 후 안될 시 제외? 생각 중
 
 
   * FRONTEND(추가 사항 목표)
