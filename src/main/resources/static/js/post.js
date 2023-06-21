@@ -20,13 +20,18 @@ let post = {
             content: $('#content').val(),
             writer: $('#writer').val(),
         };
-
+        var form =$('#form')[0];
+        var formData = new FormData(form);
+        formData.append('file', $('#file'));
+        formData.append('key', new Blob([JSON.stringify(data)] , {type: "application/json"}));
         $.ajax({
             type: 'POST',
             url: '/api/post',
             dataType: 'json',
-            contentType: 'application/json; charset=utf-8,',
-            data: JSON.stringify(data),
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            data:formData,
             beforeSend : function(xhr) {
                 /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
                 xhr.setRequestHeader(header, token);

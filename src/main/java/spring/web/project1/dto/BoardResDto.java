@@ -24,7 +24,6 @@ public class BoardResDto {
     private int view;
 
     private List<CommentResDto> commentList;
-    private List<BoardFileResDto> BoardFileList;
 
     public BoardResDto(Board board){
         this.nno = board.getNno();
@@ -34,7 +33,5 @@ public class BoardResDto {
         this.view = board.getView();
         this.commentList = board.getCommentList().stream()
                 .map(CommentResDto::new).collect(Collectors.toList());
-
-
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.web.multipart.MultipartFile;
 import spring.web.project1.entity.Board;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     int updateView(@Param("nno") Long nno);
 
     Page<Board> findByTitle(String searchTitle, Pageable pageable);
+
+
 }

@@ -1,6 +1,8 @@
 package spring.web.project1.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import spring.web.project1.dto.BoardResDto;
@@ -9,12 +11,16 @@ import spring.web.project1.dto.BoardUpdateDto;
 import spring.web.project1.entity.Board;
 import spring.web.project1.service.BoardService;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 public class BoardApiController {
+
+    @Value("${file.upload-dir}")
+    private String filedir;
 
     private final BoardService boardService;
 
@@ -23,14 +29,21 @@ public class BoardApiController {
         return boardService.getAll();
     }
 
-//    @PostMapping(value = "/api/post")
-//    public Long save(@RequestPart(value = "key")BoardSaveDto boardSaveDto, @RequestPart MultipartFile file) throws Exception {
-//        return boardService.save(boardSaveDto,file);
-//    }
-    @PostMapping(value = "/api/post")
-    public Long save(@RequestBody BoardSaveDto boardSaveDto) throws Exception {
-        return boardService.save(boardSaveDto);
+    @PostMapping(value = "/api/post", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public Long save(@RequestPart(value = "key", required = false)BoardSaveDto boardSaveDto,
+                     @RequestPart(value = "file",required = false) List<MultipartFile> file) throws Exception {
+
+//        if(!file.isEmpty()){
+//            String fullPath = filedir + file.getOriginalFilename();
+//            file.transferTo(new File(fullPath));
+//        }
+
+        return boardService.save(boardSaveDto,file);
     }
+//    @PostMapping(value = "/api/post")
+//    public Long save(@RequestBody BoardSaveDto boardSaveDto) throws Exception {
+//        return boardService.save(boardSaveDto);
+//    }
 
     @GetMapping(value = "api/post/{nno}")
     public BoardResDto getId(@PathVariable Long nno){

@@ -1,6 +1,7 @@
 package spring.web.project1.dto;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 import spring.web.project1.entity.Board;
 
 @Getter
@@ -14,8 +15,7 @@ public class BoardSaveDto {
     private String title;
     private String content;
     private String writer;
-    private String fileName;
-    private String filePath;
+    private MultipartFile file;
 
     public Board toEntity(){
         return Board.builder()
@@ -23,6 +23,7 @@ public class BoardSaveDto {
                 .title(title)
                 .content(content)
                 .writer(writer)
+                .file(String.valueOf(file))
                 .build();
     }
 }

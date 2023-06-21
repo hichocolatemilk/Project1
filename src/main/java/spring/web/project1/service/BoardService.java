@@ -13,10 +13,8 @@ import spring.web.project1.dto.BoardUpdateDto;
 import spring.web.project1.entity.Board;
 import spring.web.project1.repository.BoardRepository;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -25,8 +23,8 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-//    @Value("${file.upload-dir}")
-//    private String filesPath;
+    @Value("${file.upload-dir}")
+    private String filesPath;
 
     public Page<Board> getList (Pageable pageable){
 
@@ -40,6 +38,7 @@ public class BoardService {
 
     //rest
     public List<Board> getAll(){
+
         return boardRepository.findAll();
     }
 
@@ -55,9 +54,26 @@ public class BoardService {
 //        return boardRepository.save(boardSaveDto.toEntity()).getNno();
 //    }
 
-    public Long save(BoardSaveDto boardSaveDto) throws IOException {
+    public Long save(BoardSaveDto boardSaveDto, List<MultipartFile> file) throws IOException {
+//        Path copyOfLocation = Paths.get(filesPath + File.separator + StringUtils.cleanPath(file.getOriginalFilename()));
+//        try {
+//            // inputStream을 가져와서
+//            // copyOfLocation (저장위치)로 파일을 쓴다.
+//            // copy의 옵션은 기존에 존재하면 REPLACE(대체한다), 오버라이딩 한다
+//            Files.copy(file.getInputStream(), copyOfLocation, StandardCopyOption.REPLACE_EXISTING);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            throw new FileNotFoundException("Could not store file : " + file.getOriginalFilename());
+//
+//        }
 
+//        for (MultipartFile multipartFile : file) {
+//
+//        }
         return boardRepository.save(boardSaveDto.toEntity()).getNno();
+
+
+
     }
 
     public Long update(Long nno, BoardUpdateDto boardUpdateDto){

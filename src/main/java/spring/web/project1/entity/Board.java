@@ -2,6 +2,7 @@ package spring.web.project1.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -33,10 +34,7 @@ public class Board extends BaseTimeEntity {
     private int view;
 
     @Column
-    private String fileName;
-
-    @Column
-    private String filePath;
+    private String file;
 
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
