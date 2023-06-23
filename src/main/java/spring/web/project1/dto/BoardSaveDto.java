@@ -4,6 +4,8 @@ import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 import spring.web.project1.entity.Board;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,7 +17,7 @@ public class BoardSaveDto {
     private String title;
     private String content;
     private String writer;
-    private MultipartFile file;
+//    private List<MultipartFile> files;
 
     public Board toEntity(){
         return Board.builder()
@@ -23,7 +25,6 @@ public class BoardSaveDto {
                 .title(title)
                 .content(content)
                 .writer(writer)
-                .file(String.valueOf(file))
                 .build();
     }
 }

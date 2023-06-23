@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "board")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -33,9 +34,8 @@ public class Board extends BaseTimeEntity {
     @Column(columnDefinition = "integer default 0" ,nullable = true)
     private int view;
 
-    @Column
-    private String file;
-
+//    @Column
+//    private String fileUrls;
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonIgnore
@@ -44,7 +44,6 @@ public class Board extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
-
 
     public void update(String title, String content){
         this.title = title;
