@@ -21,8 +21,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardApiController {
 
-    @Value("${file.upload-dir}")
-    private String filedir;
 
     private final BoardService boardService;
 

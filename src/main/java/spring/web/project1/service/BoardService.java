@@ -22,9 +22,6 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-    @Value("${file.upload-dir}")
-    private String filesPath;
-
     public Page<Board> getList(Pageable pageable) {
 
         return boardRepository.findAll(pageable);

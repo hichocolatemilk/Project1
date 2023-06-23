@@ -30,8 +30,9 @@
         </tr>
         </tbody>
         <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
-            <a th:if="${page != nowPage}" th:min="1" th:href="@{/board(page = ${page - 1}, searchTitle = ${param.searchTitle})}" th:text="${page}"></a>
+            <a th:if="${page != nowPage}" th:href="@{/board(page = ${page - 1},searchtitle= ${param.searchtitle})}" th:text="${page}"></a>
             <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
         </th:block>
+
     </table>
 </div>

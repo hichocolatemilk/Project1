@@ -29,7 +29,7 @@ public class BoardController {
 
 
     @GetMapping(value = "/board")
-    public String board(Model model, @PageableDefault(page = 0, size = 1, sort = "nno", direction = Sort.Direction.DESC)
+    public String board(Model model, @PageableDefault(page = 0, size = 5, sort = "nno", direction = Sort.Direction.DESC)
     Pageable pageable, String searchTitle)
     {
         Page<Board> boardList = null;

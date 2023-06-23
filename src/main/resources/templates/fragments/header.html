@@ -18,7 +18,7 @@
                         <a class="nav-link" href="/board">게시판</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search" method="get" action="/board">
+                <form class="d-flex" role="search" method="get" th:action="@{/board}">
                     <input class="form-control me-2" type="search" name="searchTitle" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
