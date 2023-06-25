@@ -37,6 +37,13 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
+	//swagger
+	// https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
+
+
+
 
 	//jwt 보류
 //	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api

@@ -29,7 +29,8 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/");
         http.authorizeHttpRequests()
                 .mvcMatchers("/css/**", "/js/**", "/files/**").permitAll()
-                .mvcMatchers("/", "/member/**").permitAll()
+                .mvcMatchers("/", "/member/**", "/v3/api-docs",
+                        "/swagger*/**").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
