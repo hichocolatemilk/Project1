@@ -22,7 +22,6 @@ public class BoardResDto {
     private String content;
     private String writer;
     private int view;
-
     private List<CommentResDto> commentList;
 
     public BoardResDto(Board board){

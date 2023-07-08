@@ -17,7 +17,6 @@ public class BoardSaveDto {
     private String title;
     private String content;
     private String writer;
-//    private List<MultipartFile> files;
 
     public Board toEntity(){
         return Board.builder()

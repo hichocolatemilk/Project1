@@ -38,49 +38,10 @@ public class BoardService {
         return boardRepository.findAll();
     }
 
-    public Long save(BoardSaveDto boardSaveDto) throws IOException {
+    public Long save(BoardSaveDto boardSaveDto) {
         Board board = boardSaveDto.toEntity();
-
-//        // 파일 처리
-//        List<String> fileUrls = new ArrayList<>();
-//        for (MultipartFile files : file) {
-//            // 파일을 저장하고 파일 URL을 얻어온다고 가정합니다.
-//            String fileUrl = saveFiles(file).toString();
-//            fileUrls.add(fileUrl);
-//        }
-//
-//        // 파일 URL 리스트를 Board 엔티티에 저장합니다.
-//        board.setFileUrls(fileUrls.toString());
-
-        // Board 엔티티를 저장하고 생성된 게시물의 Nno를 반환합니다.
         return boardRepository.save(board).getNno();
     }
-
-//    private List<String> saveFiles(List<MultipartFile> files) throws IOException {
-//        List<String> fileUrls = new ArrayList<>();
-//
-//        for (MultipartFile file : files) {
-//            // 파일을 저장할 디렉토리 경로 설정
-//            String uploadDir = filesPath; // 실제 저장할 디렉토리 경로로 수정해야 합니다.
-//
-//            // 파일 이름 생성
-//            String originalFilename = StringUtils.cleanPath(file.getOriginalFilename());
-//            String extension = getFileExtension(originalFilename);
-//            String newFilename = UUID.randomUUID().toString() + "." + extension;
-//
-//            // 저장할 경로 설정
-//            Path targetLocation = Path.of(uploadDir, newFilename);
-//
-//            // 파일 저장
-//            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
-//
-//            // 파일 URL 추가
-//            String fileUrl = "/files/" + newFilename; // 실제 파일 URL로 수정해야 합니다.
-//            fileUrls.add(fileUrl);
-//        }
-//
-//        return fileUrls;
-//    }
 
 
     public Long update(Long nno, BoardUpdateDto boardUpdateDto) {
@@ -109,11 +70,4 @@ public class BoardService {
     }
 
 
-//    private String getFileExtension(String filename) {
-//        // 파일 확장자 추출 로직 구현 (예: ".jpg", ".txt")
-//        // 필요에 따라서 수정해야 합니다.
-//        // 예시로 파일 이름에서 마지막 "."을 찾아 확장자를 추출하는 코드를 사용했습니다.
-//        int dotIndex = filename.lastIndexOf(".");
-//        return (dotIndex == -1) ? "" : filename.substring(dotIndex);
-//    }
 }

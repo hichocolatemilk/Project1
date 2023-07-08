@@ -34,9 +34,6 @@ public class Board extends BaseTimeEntity {
     @Column(columnDefinition = "integer default 0" ,nullable = true)
     private int view;
 
-//    @Column
-//    private String fileUrls;
-
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Comment> commentList = new ArrayList<>();
