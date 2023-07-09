@@ -17,6 +17,7 @@
     * 3주차 : 추가 기능 사항?(파일업로드, 검색, 페이징) (파일업로드 - 너무 어려움) 어려움(검색,페이징 - 한코딩 참고 함 06/11) 구현 - RestController와 contoroller를 2개를 구현 하였는데 파일업로드를 어떻게 해야되나 막힘 - 해보는 중
     * 6월 15일 까지는 해결 목표
     * 참고 자료:
+    * 페이징: 처음에 값이 없어서 0번도 같이 나옴
     * 한코딩(페이징): https://www.youtube.com/watch?v=Q_W9jNTBWxo
     * 한코딩(검색): https://www.youtube.com/watch?v=ebfG6_AOlAE&t=150s
 * 결과
