@@ -3,7 +3,6 @@ package spring.web.project1.dto;
 import lombok.Getter;
 import spring.web.project1.entity.Comment;
 
-import java.time.LocalDateTime;
 
 @Getter
 public class CommentResDto {

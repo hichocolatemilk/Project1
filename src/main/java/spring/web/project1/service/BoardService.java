@@ -1,7 +1,6 @@
 package spring.web.project1.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -12,7 +11,6 @@ import spring.web.project1.dto.BoardUpdateDto;
 import spring.web.project1.entity.Board;
 import spring.web.project1.repository.BoardRepository;
 
-import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor

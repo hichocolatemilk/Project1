@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.multipart.MultipartFile;
 import spring.web.project1.entity.Board;
-import spring.web.project1.entity.Comment;
 
 import java.util.List;
 import java.util.stream.Collectors;

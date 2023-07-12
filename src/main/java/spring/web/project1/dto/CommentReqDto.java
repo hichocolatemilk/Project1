@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import spring.web.project1.entity.Board;
 import spring.web.project1.entity.Comment;
-import spring.web.project1.entity.Member;
 
 @Getter
 @NoArgsConstructor

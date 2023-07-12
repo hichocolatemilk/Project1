@@ -1,10 +1,8 @@
 package spring.web.project1.dto;
 
 import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
 import spring.web.project1.entity.Board;
 
-import java.util.List;
 
 @Getter
 @Setter
