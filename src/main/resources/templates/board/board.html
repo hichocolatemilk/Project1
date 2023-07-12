@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layouts}">
 
-<div layout:fragment="content">
-    <div class="board-button">
-       <a href="/board/post">
-
-        <button type="button" class="btn btn-primary">게시글 쓰기</button>
-       </a>
-    </div>
+<div class="board-button">
+    <a href="/board/post">
+        <button type="button" class="btn btn-primary">할 일 추가</button>
+    </a>
+</div>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -21,7 +16,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="board : ${boardList}">
+        <tr th:each="todos : ${boardList}">
             <td th:text="${board.nno}">#</td>
             <td><a href="boardDtl.html" th:href="@{/board/post/view/{nno}(nno=${board.nno})}" th:text="${board.title}">제목</a></td>
             <td th:text="${board.writer}">작성자</td>
