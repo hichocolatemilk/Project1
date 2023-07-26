@@ -21,5 +21,7 @@
     * 한코딩(페이징): https://www.youtube.com/watch?v=Q_W9jNTBWxo
     * 한코딩(검색): https://www.youtube.com/watch?v=ebfG6_AOlAE&t=150s
 * 결과
-  *  파일 업로드는 못함
+  *  기본적인 CRUD 및 페이징을 구현하였으나 파일 업로드는 못함(파일업로드쪽 공부를 더 해야할것 같음)
+ 
+  *  다음은 JSP및 MyBatis를 사용해보지 않아 간단한 crud(TODO LIST)를 통하여 공부해볼 것 
 
